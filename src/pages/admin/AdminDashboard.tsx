@@ -85,7 +85,7 @@ export default function AdminDashboard() {
         </div>
         
         <nav className="flex-1 overflow-y-auto py-4">
-          <div className="px-4 mb-4 text-[9px] font-bold opacity-40 uppercase tracking-widest">Main Governance</div>
+          <div className="px-4 mb-4 text-[9px] font-bold opacity-40 uppercase tracking-widest">{t('Main Governance')}</div>
           <ul className="space-y-1">
             <li>
               <button onClick={() => setActiveTab('dashboard')} className={`w-full flex items-center gap-3 px-4 py-2 text-xs font-medium transition-colors ${activeTab === 'dashboard' ? 'bg-[#141414] text-white' : 'hover:bg-[#D9D8D5] text-[#141414]'}`}>
@@ -94,22 +94,22 @@ export default function AdminDashboard() {
             </li>
             <li>
               <button onClick={() => setActiveTab('verification')} className={`w-full flex items-center gap-3 px-4 py-2 text-xs font-medium transition-colors ${activeTab === 'verification' ? 'bg-[#141414] text-white' : 'hover:bg-[#D9D8D5] text-[#141414]'}`}>
-                <Users className="w-4 h-4" /> <span>{activeTab === 'verification' ? '■' : '□'} User Verification</span>
+                <Users className="w-4 h-4" /> <span>{activeTab === 'verification' ? '■' : '□'} {t('User Verification')}</span>
               </button>
             </li>
             <li>
               <button onClick={() => setActiveTab('incidents')} className={`w-full flex items-center gap-3 px-4 py-2 text-xs font-medium transition-colors ${activeTab === 'incidents' ? 'bg-[#141414] text-white' : 'hover:bg-[#D9D8D5] text-[#141414]'}`}>
-                <AlertTriangle className="w-4 h-4" /> <span>{activeTab === 'incidents' ? '■' : '□'} Safety Incidents</span>
+                <AlertTriangle className="w-4 h-4" /> <span>{activeTab === 'incidents' ? '■' : '□'} {t('Safety Incidents')}</span>
               </button>
             </li>
             <li>
               <button onClick={() => setActiveTab('notices')} className={`w-full flex items-center gap-3 px-4 py-2 text-xs font-medium transition-colors ${activeTab === 'notices' ? 'bg-[#141414] text-white' : 'hover:bg-[#D9D8D5] text-[#141414]'}`}>
-                <FileText className="w-4 h-4" /> <span>{activeTab === 'notices' ? '■' : '□'} Show Cause Notices</span>
+                <FileText className="w-4 h-4" /> <span>{activeTab === 'notices' ? '■' : '□'} {t('Show Cause Notices')}</span>
               </button>
             </li>
             <li>
               <button onClick={() => setActiveTab('compliance')} className={`w-full flex items-center gap-3 px-4 py-2 text-xs font-medium transition-colors ${activeTab === 'compliance' ? 'bg-[#141414] text-white' : 'hover:bg-[#D9D8D5] text-[#141414]'}`}>
-                <CheckSquare className="w-4 h-4" /> <span>{activeTab === 'compliance' ? '■' : '□'} Compliance Tracker</span>
+                <CheckSquare className="w-4 h-4" /> <span>{activeTab === 'compliance' ? '■' : '□'} {t('Compliance Tracker')}</span>
               </button>
             </li>
           </ul>
@@ -143,7 +143,7 @@ export default function AdminDashboard() {
              <LanguageSelector />
              <div className="flex items-center gap-2">
                <span className="w-2 h-2 bg-[#00FF00] rounded-full shadow-[0_0_8px_#00FF00]"></span>
-               <span className="text-[9px] font-mono uppercase tracking-widest">System Sync: Optimal</span>
+               <span className="text-[9px] font-mono uppercase tracking-widest">{t('System Sync: Optimal')}</span>
              </div>
           </div>
         </header>
@@ -179,30 +179,30 @@ export default function AdminDashboard() {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                   <div className="col-span-2 bg-[#F5F4F1] border border-[#141414] flex flex-col">
                     <div className="px-3 py-2 border-b border-[#141414] bg-[#141414] text-white flex justify-between items-center">
-                      <h3 className="text-[10px] font-mono uppercase tracking-widest">Production Trend (National)</h3>
-                      <span className="text-[9px] font-mono opacity-50">UNIT: MT</span>
+                      <h3 className="text-[10px] font-mono uppercase tracking-widest">{t('Production Trend (National)')}</h3>
+                      <span className="text-[9px] font-mono opacity-50">{t('UNIT: MT')}</span>
                     </div>
                     <div className="flex-1 min-h-[400px] p-4 flex items-center justify-center">
                       <div className="w-full h-full border border-[#141414] border-dashed flex items-center justify-center text-[10px] font-mono opacity-50">
-                        [INTERACTIVE CHART RENDER PORT]
+                        {t('[INTERACTIVE CHART RENDER PORT]')}
                       </div>
                     </div>
                   </div>
                   
                   <div className="bg-white border border-[#141414] shadow-[4px_4px_0px_#141414] flex flex-col max-h-[450px]">
                     <div className="px-3 py-2 border-b border-[#141414] bg-[#F27D26] text-white">
-                      <h3 className="text-[10px] font-bold uppercase tracking-widest">Pending Verifications</h3>
+                      <h3 className="text-[10px] font-bold uppercase tracking-widest">{t('Pending Verifications')}</h3>
                     </div>
                     <div className="p-4 space-y-3 overflow-y-auto">
                       {pendingUsers.length === 0 ? (
-                        <p className="text-xs font-mono opacity-50">No pending users.</p>
+                        <p className="text-xs font-mono opacity-50">{t('No pending users.')}</p>
                       ) : pendingUsers.map(u => (
                         <div key={u.id} className="border-l-2 border-[#141414] pl-3 py-1">
                           <p className="text-[10px] font-bold leading-none uppercase truncate">{u.name} <span className="text-[9px] font-normal opacity-50 ml-1">({u.email})</span></p>
-                          <p className="text-[9px] font-mono opacity-70 mt-1">ROLE: {u.role.toUpperCase()} • MINE_{u.mineId}</p>
+                          <p className="text-[9px] font-mono opacity-70 mt-1">ROLE: {t(u.role).toUpperCase()} • MINE_{u.mineId}</p>
                           <div className="flex gap-2 mt-2">
-                            <button onClick={() => handleVerification(u.id, 'approved')} className="text-[8px] font-bold px-2 py-1 bg-[#141414] text-white rounded-sm hover:opacity-80 transition-opacity uppercase">Approve</button>
-                            <button onClick={() => handleVerification(u.id, 'rejected')} className="text-[8px] font-bold px-2 py-1 border border-[#141414] rounded-sm hover:bg-[#D9D8D5] transition-colors uppercase">Reject</button>
+                            <button onClick={() => handleVerification(u.id, 'approved')} className="text-[8px] font-bold px-2 py-1 bg-[#141414] text-white rounded-sm hover:opacity-80 transition-opacity uppercase">{t('Approve')}</button>
+                            <button onClick={() => handleVerification(u.id, 'rejected')} className="text-[8px] font-bold px-2 py-1 border border-[#141414] rounded-sm hover:bg-[#D9D8D5] transition-colors uppercase">{t('Reject')}</button>
                           </div>
                         </div>
                       ))}
@@ -215,17 +215,17 @@ export default function AdminDashboard() {
             {activeTab === 'verification' && (
               <div className="bg-white border border-[#141414] shadow-[4px_4px_0px_#141414]">
                 <div className="px-4 py-3 border-b border-[#141414] bg-[#141414] text-white flex justify-between items-center">
-                  <h3 className="text-xs font-bold uppercase tracking-widest">User Management Directory</h3>
-                  <span className="text-[10px] font-mono">TOTAL: {allUsers.length}</span>
+                  <h3 className="text-xs font-bold uppercase tracking-widest">{t('User Management Directory')}</h3>
+                  <span className="text-[10px] font-mono">{t('TOTAL')}: {allUsers.length}</span>
                 </div>
                 <div className="p-4">
                   <table className="w-full text-left border-collapse">
                     <thead>
                       <tr className="border-b-2 border-[#141414] text-[10px] font-bold uppercase tracking-widest">
-                        <th className="py-2 px-4">Name</th>
-                        <th className="py-2 px-4">Role</th>
-                        <th className="py-2 px-4">Status</th>
-                        <th className="py-2 px-4 text-right">Actions</th>
+                        <th className="py-2 px-4">{t('Name')}</th>
+                        <th className="py-2 px-4">{t('Role')}</th>
+                        <th className="py-2 px-4">{t('Status')}</th>
+                        <th className="py-2 px-4 text-right">{t('Actions')}</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -235,17 +235,17 @@ export default function AdminDashboard() {
                             <p className="text-xs font-bold">{u.name}</p>
                             <p className="text-[9px] font-mono opacity-60">{u.email}</p>
                           </td>
-                          <td className="py-3 px-4 text-[10px] font-mono uppercase">{u.role}</td>
+                          <td className="py-3 px-4 text-[10px] font-mono uppercase">{t(u.role)}</td>
                           <td className="py-3 px-4">
                             <span className={`text-[9px] font-bold px-2 py-1 uppercase tracking-widest border border-[#141414] ${u.status === 'approved' ? 'bg-[#00FF00] bg-opacity-20' : u.status === 'rejected' ? 'bg-[#D93025] text-white' : 'bg-[#F27D26] text-white'}`}>
-                              {u.status}
+                              {t(u.status)}
                             </span>
                           </td>
                           <td className="py-3 px-4 text-right">
                             {u.status === 'pending' && (
                               <div className="flex justify-end gap-2">
-                                <button onClick={() => handleVerification(u.id, 'approved')} className="text-[9px] font-bold px-2 py-1 bg-[#141414] text-white hover:opacity-80 transition-opacity uppercase">Approve</button>
-                                <button onClick={() => handleVerification(u.id, 'rejected')} className="text-[9px] font-bold px-2 py-1 border border-[#141414] hover:bg-[#D9D8D5] transition-colors uppercase">Reject</button>
+                                <button onClick={() => handleVerification(u.id, 'approved')} className="text-[9px] font-bold px-2 py-1 bg-[#141414] text-white hover:opacity-80 transition-opacity uppercase">{t('Approve')}</button>
+                                <button onClick={() => handleVerification(u.id, 'rejected')} className="text-[9px] font-bold px-2 py-1 border border-[#141414] hover:bg-[#D9D8D5] transition-colors uppercase">{t('Reject')}</button>
                               </div>
                             )}
                           </td>

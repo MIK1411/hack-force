@@ -125,11 +125,11 @@ export default function Login() {
             </div>
             
             <div className="text-[10px] font-mono text-opacity-80 p-3 bg-[#D9D8D5] border border-[#141414] mt-2">
-              <p className="font-bold mb-1">Demo Accounts:</p>
+              <p className="font-bold mb-1">{t('Demo Accounts')}:</p>
               <ul className="space-y-1">
-                <li>Admin: ADMIN1411 / 141124admin</li>
-                <li>Manager: manager@coal.gov.in / pass123</li>
-                <li>Worker: 9876543210 / pass123</li>
+                <li>{t('Admin')}: ADMIN1411 / 141124admin</li>
+                <li>{t('MineManager')}: manager@coal.gov.in / pass123</li>
+                <li>{t('Miner')}: 9876543210 / pass123</li>
               </ul>
             </div>
             
@@ -139,7 +139,7 @@ export default function Login() {
           </form>
           
           <div className="mt-6 text-center text-xs font-mono opacity-80">
-            New personnel? <Link to="/register" className="text-[#F27D26] hover:underline font-bold">Request Access</Link>
+            {t('New personnel?')} <Link to="/register" className="text-[#F27D26] hover:underline font-bold">{t('Request Access')}</Link>
           </div>
         </div>
       </div>

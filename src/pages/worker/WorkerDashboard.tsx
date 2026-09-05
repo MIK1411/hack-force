@@ -140,7 +140,7 @@ export default function WorkerDashboard() {
                 {sosActive ? (
                   <div className="bg-[#D93025] border-4 border-[#141414] p-6 text-center w-full animate-pulse shadow-[inset_0_0_20px_rgba(0,0,0,0.5)]">
                     <h3 className="text-white font-mono font-bold text-2xl mb-2 uppercase">{t('SOS TRIGGERED')}</h3>
-                    <p className="text-[#E4E3E0] text-[10px] font-bold uppercase tracking-widest">Emergency services & Manager notified.<br/>Location captured.</p>
+                    <p className="text-[#E4E3E0] text-[10px] font-bold uppercase tracking-widest">{t('Emergency services & Manager notified. Location captured.')}</p>
                   </div>
                 ) : (
                   <>
@@ -178,11 +178,11 @@ export default function WorkerDashboard() {
               <form onSubmit={handleHazardSubmit} className="space-y-4">
                 <div>
                   <label className="block text-[10px] font-bold uppercase tracking-widest mb-1">{t('Title')}</label>
-                  <input name="title" required className="w-full bg-[#E4E3E0] border-2 border-[#141414] p-3 text-sm font-mono focus:outline-none focus:bg-white transition-colors" placeholder="e.g. Broken Conveyor" />
+                  <input name="title" required className="w-full bg-[#E4E3E0] border-2 border-[#141414] p-3 text-sm font-mono focus:outline-none focus:bg-white transition-colors" placeholder={t('e.g. Broken Conveyor')} />
                 </div>
                 <div>
                   <label className="block text-[10px] font-bold uppercase tracking-widest mb-1">{t('Description')}</label>
-                  <textarea name="description" required rows={4} className="w-full bg-[#E4E3E0] border-2 border-[#141414] p-3 text-sm font-mono focus:outline-none focus:bg-white transition-colors" placeholder="Details of the hazard..."></textarea>
+                  <textarea name="description" required rows={4} className="w-full bg-[#E4E3E0] border-2 border-[#141414] p-3 text-sm font-mono focus:outline-none focus:bg-white transition-colors" placeholder={t('Details of the hazard...')}></textarea>
                 </div>
                 <div>
                   <label className="block text-[10px] font-bold uppercase tracking-widest mb-1">{t('Severity')}</label>
